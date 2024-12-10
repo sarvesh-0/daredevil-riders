@@ -1,0 +1,32 @@
+<mat-card>
+    <h2>Future Tours</h2>
+    <table mat-table [dataSource]="futureTours" class="mat-elevation-z8">
+      <ng-container matColumnDef="date">
+        <th mat-header-cell *matHeaderCellDef> Date </th>
+        <td mat-cell *matCellDef="let tour"> {{ tour.date }} </td>
+      </ng-container>
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef> Tour Name </th>
+        <td mat-cell *matCellDef="let tour"> {{ tour.name }} </td>
+      </ng-container>
+      <ng-container matColumnDef="location">
+        <th mat-header-cell *matHeaderCellDef> Location </th>
+        <td mat-cell *matCellDef="let tour"> {{ tour.location }} </td>
+      </ng-container>
+      <ng-container matColumnDef="package">
+        <th mat-header-cell *matHeaderCellDef> Package </th>
+        <td mat-cell *matCellDef="let tour"> {{ tour.package }} </td>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+    <marquee>
+      <img
+        *ngFor="let image of tourImages"
+        [src]="image"
+        alt="Nature Image"
+        style="margin: 10px; border-radius: 10%; height: 100px;"
+      />
+    </marquee>
+  </mat-card>
